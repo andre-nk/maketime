@@ -1,7 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { FC } from "react";
 
-export const Navbar: FC<{ openModal: VoidFunction }> = ({ openModal }) => {
+export const Navbar: FC = () => {
   const { loginWithRedirect, user, isAuthenticated, logout } = useAuth0();
 
   return (
@@ -21,7 +21,6 @@ export const Navbar: FC<{ openModal: VoidFunction }> = ({ openModal }) => {
           </div>
           <div className="flex flex-col gap-4 mt-4 sm:flex-row sm:mt-0 sm:items-center">
             <button
-              onClick={openModal}
               className="inline-flex items-center justify-center px-5 py-3 text-gray-500 transition border border-gray-200 rounded-lg hover:text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring"
               type="button"
             >
@@ -38,7 +37,7 @@ export const Navbar: FC<{ openModal: VoidFunction }> = ({ openModal }) => {
                   loginWithRedirect();
                 }
               }}
-              className="block px-5 py-3 text-sm font-medium text-white transition bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring"
+              className="block px-5 py-3 text-sm font-medium text-custom-black bg-primary-500 hover:bg-primary-800 transition rounded-lg focus:outline-none focus:ring"
               type="button"
             >
               {isAuthenticated ? "Log out" : "Login"}

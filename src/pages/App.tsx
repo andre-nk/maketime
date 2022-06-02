@@ -1,22 +1,67 @@
-import { ReactElement, useState } from "react";
-import { IntroDialog } from "../components/intro_dialog";
-import { Navbar } from "../components/navbar";
+import { ReactElement, useEffect, useState } from "react";
+import { IntroDialog1 } from "../components/intro/IntroDialog1";
+import { IntroDialog2 } from "../components/intro/IntroDialog2";
+import { IntroDialog3 } from "../components/intro/IntroDialog3";
+import { Navbar } from "../components/Navbar";
+import { WelcomeDialogs } from "../const/WelcomeDialogs";
 
 function App(): ReactElement {
-  let [isOpen, setIsOpen] = useState(false);
+  let [activeDialog, setActiveDialog] = useState(WelcomeDialogs.None);
 
-  function closeModal() {
-    setIsOpen(false);
-  }
+  // useEffect(() => {
+  //   const isOnboardingCompleted = localStorage.getItem("isOnboardingCompleted");
+  //   if (isOnboardingCompleted && isOnboardingCompleted != "true") {
+  //     console.log("Welcome Dialogs Init...");
+  //     setActiveDialog(WelcomeDialogs.Intro1);
+  //   }
 
-  function openModal() {
-    setIsOpen(true);
+  //   return () => {
+  //     console.log("Component will be unmount");
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    function checkUserData() {
+      const item = localStorage.getItem("isOnboardingCompleted");
+      console.log(item);
+
+      if (item === null || (item && item !== "true")) {
+        console.log(item);
+        setNextDialog(WelcomeDialogs.Intro1);
+      }
+    }
+
+    checkUserData();
+    return () => {
+      checkUserData();
+    };
+  }, []);
+
+  function setNextDialog(dialog: WelcomeDialogs) {
+    if (dialog == WelcomeDialogs.None) {
+      localStorage.setItem("isOnboardingCompleted", "true");
+    }
+
+    setActiveDialog(dialog);
   }
 
   return (
     <div className="w-full h-full flex flex-col justify-start">
-      <IntroDialog isOpen={isOpen} closeModal={closeModal} />
-      <Navbar openModal={openModal} />
+      <div>
+        <IntroDialog1
+          isOpen={activeDialog == WelcomeDialogs.Intro1}
+          next={setNextDialog}
+        />
+        <IntroDialog2
+          isOpen={activeDialog == WelcomeDialogs.Intro2}
+          next={setNextDialog}
+        />
+        <IntroDialog3
+          isOpen={activeDialog == WelcomeDialogs.Intro3}
+          next={setNextDialog}
+        />
+      </div>
+      <Navbar />
     </div>
   );
 }
