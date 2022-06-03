@@ -1,24 +1,13 @@
 import { ReactElement, useEffect, useState } from "react";
+
 import { IntroDialog1 } from "../components/intro/IntroDialog1";
 import { IntroDialog2 } from "../components/intro/IntroDialog2";
 import { IntroDialog3 } from "../components/intro/IntroDialog3";
-import { Navbar } from "../components/Navbar";
+import { Sidebar } from "../components/navigation/Sidebar";
 import { WelcomeDialogs } from "../const/WelcomeDialogs";
 
 function App(): ReactElement {
   let [activeDialog, setActiveDialog] = useState(WelcomeDialogs.None);
-
-  // useEffect(() => {
-  //   const isOnboardingCompleted = localStorage.getItem("isOnboardingCompleted");
-  //   if (isOnboardingCompleted && isOnboardingCompleted != "true") {
-  //     console.log("Welcome Dialogs Init...");
-  //     setActiveDialog(WelcomeDialogs.Intro1);
-  //   }
-
-  //   return () => {
-  //     console.log("Component will be unmount");
-  //   };
-  // }, []);
 
   useEffect(() => {
     function checkUserData() {
@@ -61,7 +50,7 @@ function App(): ReactElement {
           next={setNextDialog}
         />
       </div>
-      <Navbar />
+      <Sidebar />
     </div>
   );
 }
