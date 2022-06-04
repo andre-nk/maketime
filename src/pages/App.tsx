@@ -1,13 +1,22 @@
 import { ReactElement, useEffect, useState } from "react";
+import { CalendarHeader } from "../components/calendar/CalendarHeader";
 
 import { IntroDialog1 } from "../components/intro/IntroDialog1";
 import { IntroDialog2 } from "../components/intro/IntroDialog2";
 import { IntroDialog3 } from "../components/intro/IntroDialog3";
 import { Sidebar } from "../components/navigation/Sidebar";
+import { CalendarFilter } from "../const/CalendarFilter";
 import { WelcomeDialogs } from "../const/WelcomeDialogs";
 
 function App(): ReactElement {
   let [activeDialog, setActiveDialog] = useState(WelcomeDialogs.None);
+
+  const [activeFilter, setActiveFilter] = useState([
+    new CalendarFilter(false, "Stack"),
+    new CalendarFilter(false, "Might-Do List"),
+    new CalendarFilter(false, "Burner List"),
+    new CalendarFilter(false, "Reflection"),
+  ]);
 
   useEffect(() => {
     function checkUserData() {
@@ -35,7 +44,7 @@ function App(): ReactElement {
   }
 
   return (
-    <div className="w-full h-full flex flex-col justify-start">
+    <div className="w-full h-full flex justify-start">
       <div>
         <IntroDialog1
           isOpen={activeDialog == WelcomeDialogs.Intro1}
@@ -51,6 +60,12 @@ function App(): ReactElement {
         />
       </div>
       <Sidebar />
+      <div className="w-full h-full flex flex-col justify-start py-8 px-12">
+        <CalendarHeader
+          activeFilter={activeFilter}
+          setActiveFilter={setActiveFilter}
+        />
+      </div>
     </div>
   );
 }

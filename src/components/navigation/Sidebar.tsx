@@ -3,7 +3,7 @@ import { IoCalendar, IoTimer, IoHelpCircle } from "react-icons/io5";
 
 export const Sidebar = () => {
   return (
-    <div className="flex flex-col sm:w-[100%] md:w-[60%] lg:w-[17.5%] justify-between items-center h-screen bg-white border-r">
+    <div className="flex flex-col sm:w-[100%] md:w-[60%] lg:w-[20%] justify-between items-center h-screen bg-custom-white border-r">
       <div className="py-6 flex flex-col">
         <img
           src="/assets/logo.png"
@@ -61,11 +61,8 @@ export const Sidebar = () => {
         </nav>
       </div>
 
-      <div className="sticky w-full border-gray-100">
-        <a
-          href=""
-          className="flex items-center p-4 bg-white hover:bg-gray-50 shrink-0"
-        >
+      <div className="sticky w-full border-gray-100 bg-custom-white">
+        <a href="" className="flex items-center p-4 shrink-0">
           <img
             className="object-cover w-10 h-10 rounded-full"
             src="https://www.hyperui.dev/photos/man-4.jpeg"

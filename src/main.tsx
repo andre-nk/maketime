@@ -5,11 +5,12 @@ import App from "./pages/App";
 import { Helmet } from "react-helmet";
 import { Auth0Provider } from "@auth0/auth0-react";
 
+//? Main Helmet and can be altered by each child down the root
 ReactDOM.render(
   <Auth0Provider
     domain="dev-hy6kclet.us.auth0.com"
     clientId="epQsIMv5fMxbhm7HM165Qc49UIt4PtUe"
-    //For redirect after login or logout
+    //? For redirect after login or logout
     redirectUri={window.location.origin}
   >
     <React.StrictMode>

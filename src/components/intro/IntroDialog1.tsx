@@ -4,6 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { IoChevronForwardCircleOutline } from "react-icons/io5";
 import { WelcomeDialogs } from "../../const/WelcomeDialogs";
 
+//? Use FC for defining props types, you can also define [type] and pass it below!
 export const IntroDialog1: FC<{
   isOpen: boolean;
   next: Function;
