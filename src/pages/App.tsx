@@ -1,4 +1,5 @@
 import { ReactElement, useEffect, useState } from "react";
+import Calendar from "../components/calendar/Calendar";
 import { CalendarHeader } from "../components/calendar/CalendarHeader";
 
 import { IntroDialog1 } from "../components/intro/IntroDialog1";
@@ -65,6 +66,7 @@ function App(): ReactElement {
           activeFilter={activeFilter}
           setActiveFilter={setActiveFilter}
         />
+        <Calendar />
       </div>
     </div>
   );
