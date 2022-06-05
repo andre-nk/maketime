@@ -15,7 +15,7 @@ export const NewListButton = () => {
     <div>
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className="flex items-center rounded-lg px-2.5 py-1 mt-5 border text-white bg-secondary-800 border-secondary-300 hover:bg-secondary-800 hover:border-secondary-500 ">
+          <Menu.Button className="flex items-center rounded-lg px-2.5 py-1 border text-white bg-secondary-800 border-secondary-300 hover:bg-secondary-800 hover:border-secondary-500 ">
             <IoAddOutline className=" mr-2" />
             <p className="font-medium text-sm">New</p>
           </Menu.Button>

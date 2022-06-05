@@ -3,7 +3,7 @@ import { IoCalendar, IoTimer, IoHelpCircle } from "react-icons/io5";
 
 export const Sidebar = () => {
   return (
-    <div className="flex flex-col h-full sm:w-[100%] md:w-[60%] lg:w-[25%] overflow-clip justify-between items-center  bg-custom-white border-r">
+    <div className="flex flex-col h-full sm:w-[100%] md:w-[60%] lg:w-full overflow-clip justify-between items-center  bg-custom-white border-r">
       <div className="py-6 flex flex-col">
         <img
           src="/assets/logo.png"
@@ -13,7 +13,7 @@ export const Sidebar = () => {
 
         <nav className="flex flex-col mt-6 space-y-1">
           <div className="pt-2">
-            <h3 className="pb-1 px-4 font-semibold text-custom-gray text-sm">
+            <h3 className="pb-1 px-4 font-semibold text-custom-gray-300 text-sm">
               HIGHLIGHT
             </h3>
             <a
@@ -38,7 +38,7 @@ export const Sidebar = () => {
             </a>
           </div>
           <div className="pt-4">
-            <h3 className="pb-1 px-4 font-semibold text-custom-gray text-sm">
+            <h3 className="pb-1 px-4 font-semibold text-custom-gray-300 text-sm">
               LASER
             </h3>
             <a

@@ -22,7 +22,7 @@ export const CalendarFilterChip: FC<{
         className={`flex flex-wrap items-center justify-between rounded-lg px-2.5 py-1 border transition duration-300 ${
           isSelected
             ? "bg-secondary-100 border-secondary-300 hover:bg-secondary-200 hover:border-secondary-500 text-secondary-800"
-            : "border-custom-gray bg-white border hover:bg-gray-200"
+            : "border-custom-gray-300 bg-white border hover:bg-gray-200"
         }`}
       >
         {isSelected && (

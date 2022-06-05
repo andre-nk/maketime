@@ -63,7 +63,7 @@ export const IntroDialog1: FC<{
                   <button onClick={() => next(WelcomeDialogs.Intro2)}>
                     <IoChevronForwardCircleOutline
                       size={28}
-                      className="text-custom-gray"
+                      className="text-custom-gray-300"
                     />
                   </button>
                 </div>

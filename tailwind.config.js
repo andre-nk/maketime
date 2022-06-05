@@ -35,8 +35,12 @@ module.exports = {
           800: "#2DAADC",
         },
         "custom-black": "#030303",
-        "custom-gray": "#81817F",
+        "custom-gray": {
+          300: "#81817F",
+          500: "#E8E9E7",
+        },
         "custom-white": "#F8F6F0",
+        "custom-red": "#EB5757",
       },
     },
   },
