@@ -3,7 +3,7 @@ import { IoCalendar, IoTimer, IoHelpCircle } from "react-icons/io5";
 
 export const Sidebar = () => {
   return (
-    <div className="flex flex-col sm:w-[100%] md:w-[60%] lg:w-[20%] justify-between items-center h-screen bg-custom-white border-r">
+    <div className="flex flex-col h-full sm:w-[100%] md:w-[60%] lg:w-[25%] overflow-clip justify-between items-center  bg-custom-white border-r">
       <div className="py-6 flex flex-col">
         <img
           src="/assets/logo.png"

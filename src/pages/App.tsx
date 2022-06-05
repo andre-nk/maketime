@@ -45,28 +45,18 @@ function App(): ReactElement {
   }
 
   return (
-    <div className="w-full h-full flex justify-start">
-      <div>
-        <IntroDialog1
-          isOpen={activeDialog == WelcomeDialogs.Intro1}
-          next={setNextDialog}
-        />
-        <IntroDialog2
-          isOpen={activeDialog == WelcomeDialogs.Intro2}
-          next={setNextDialog}
-        />
-        <IntroDialog3
-          isOpen={activeDialog == WelcomeDialogs.Intro3}
-          next={setNextDialog}
-        />
+    <div className="flex justify-end w-full h-[100%]">
+      <div className="fixed h-full top-0 left-0">
+        <Sidebar />
       </div>
-      <Sidebar />
-      <div className="w-full h-full flex flex-col justify-start py-8 px-12">
+      <div className="w-[80%] h-full flex flex-col justify-start py-8 pr-12">
         <CalendarHeader
           activeFilter={activeFilter}
           setActiveFilter={setActiveFilter}
         />
-        <Calendar />
+        <div className="z-0 py-16 w-full">
+          <Calendar />
+        </div>
       </div>
     </div>
   );
