@@ -20,7 +20,7 @@ export const Sidebar = () => {
               href=""
               className="flex items-center px-4 pl-5 py-2 text-gray-700 bg-gray-100 "
             >
-              <IoCalendar size={16} />
+              <p>📅</p>
               <span className="ml-3 text-sm font-medium">
                 {" "}
                 Highlight Picker{" "}
@@ -45,14 +45,14 @@ export const Sidebar = () => {
               href=""
               className="flex items-center px-4 pl-5 py-2 text-gray-700 bg-gray-100 "
             >
-              <IoTimer size={18} />
+              <p>⏱</p>
               <span className="ml-3 text-sm font-medium"> Visible Timer </span>
             </a>
             <a
               href=""
               className="flex items-center px-4 pl-5 py-2 text-gray-500  hover:bg-gray-100 hover:text-gray-700"
             >
-              <IoHelpCircle size={20} />
+              <p>⁉️</p>
               <span className="ml-3 text-sm font-medium">
                 Trivial Questions
               </span>

@@ -1,14 +1,6 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-import {
-  IoAddOutline,
-  IoBulb,
-  IoClipboard,
-  IoFlame,
-  IoInformationCircleOutline,
-  IoTime,
-  IoTrophy,
-} from "react-icons/io5";
+import { IoAddOutline, IoInformationCircleOutline } from "react-icons/io5";
 
 export const NewListButton = () => {
   return (
@@ -16,7 +8,7 @@ export const NewListButton = () => {
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="flex items-center rounded-lg px-2.5 py-1 border text-white bg-secondary-800 border-secondary-300 hover:bg-secondary-800 hover:border-secondary-500 ">
-            <IoAddOutline className=" mr-2" />
+            <IoAddOutline className="mr-2" />
             <p className="font-medium text-sm">New</p>
           </Menu.Button>
         </div>
@@ -39,7 +31,7 @@ export const NewListButton = () => {
                     } transition duration-200 w-full flex justify-between items-center rounded-md px-3 py-2 text-sm`}
                   >
                     <div className="flex space-x-3 justify-between items-center">
-                      <IoBulb size={16} />
+                      <p>💡</p>
                       <p>Highlight</p>
                     </div>
                     <IoInformationCircleOutline size={18} />
@@ -54,7 +46,7 @@ export const NewListButton = () => {
                     } transition duration-200 w-full flex justify-between items-center rounded-md px-3 py-2 text-sm`}
                   >
                     <div className="flex space-x-3 justify-between items-center">
-                      <IoTrophy size={16} />
+                      <p>🏆</p>
                       <p>Stack Rank</p>
                     </div>
                     <IoInformationCircleOutline size={18} />
@@ -69,7 +61,7 @@ export const NewListButton = () => {
                     } transition duration-200 w-full flex justify-between items-center rounded-md px-3 py-2 text-sm`}
                   >
                     <div className="flex space-x-3 justify-between items-center">
-                      <IoFlame size={16} />
+                      <p>🔥</p>
                       <p>Burner List</p>
                     </div>
                     <IoInformationCircleOutline size={18} />
@@ -84,7 +76,7 @@ export const NewListButton = () => {
                     } transition duration-200 w-full flex justify-between items-center rounded-md px-3 py-2 text-sm`}
                   >
                     <div className="flex space-x-3 justify-between items-center">
-                      <IoClipboard size={16} />
+                      <p>📝</p>
                       <p>Might-Do List</p>
                     </div>
                     <IoInformationCircleOutline size={18} />
@@ -99,7 +91,7 @@ export const NewListButton = () => {
                     } transition duration-200 w-full flex justify-between items-center rounded-md px-3 py-2 text-sm`}
                   >
                     <div className="flex space-x-3 justify-between items-center">
-                      <IoTime size={16} />
+                      <p>⏳</p>
                       <p>Reflection</p>
                     </div>
                     <IoInformationCircleOutline size={18} />

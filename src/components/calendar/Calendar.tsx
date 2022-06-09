@@ -58,36 +58,51 @@ const Calendar: FC<{
         const cloneDay = day;
         days.push(
           <div
-            className={`flex group pr-3 pt-2 text-sm font-medium border-[0.5px] border-custom-gray-500 h-32 ${
+            className={`flex flex-col group px-2 py-2 text-sm font-medium border-[0.5px] border-custom-gray-500 min-h-[8rem] ${
               !isSameMonth(day, monthStart)
-                ? "text-custom-gray-300 font-normal justify-end"
-                : "justify-between"
+                ? "text-custom-gray-300 font-normal self-end"
+                : "justify-start"
             } ${isWeekend(day) && "bg-custom-white"}`}
             key={day.toISOString()}
             onClick={() => onDateClick(parse("EEEE", "", cloneDay))}
           >
-            {isSameMonth(day, monthStart) && (
-              <div className="opacity-0 group-hover:opacity-100 hover:bg-custom-white ml-2 shadow-lg p-1 border rounded-lg h-fit duration-200 transition">
-                <IoAdd size={16} />
-              </div>
-            )}
-            <p
-              className={
-                isSameDay(cloneDay, new Date())
-                  ? `rounded-full bg-custom-red text-white flex justify-center items-center text-xs h-[1.5rem] w-[1.5rem]`
-                  : ``
-              }
+            <div
+              className={`flex w-full justify-end ${
+                isSameMonth(day, monthStart) && "justify-between"
+              } items-center`}
             >
-              {formattedDate}
-            </p>
+              {isSameMonth(day, monthStart) && (
+                <div className="opacity-0 group-hover:opacity-100 hover:bg-custom-white shadow-md p-1 border rounded-lg h-fit duration-200 transition">
+                  <IoAdd size={16} />
+                </div>
+              )}
+              <p
+                className={
+                  isSameDay(cloneDay, new Date())
+                    ? `rounded-full bg-custom-red text-white flex justify-center items-center text-xs h-[1.5rem] w-[1.5rem]`
+                    : ``
+                }
+              >
+                {formattedDate}
+              </p>
+            </div>
+            <div className="flex flex-col w-full mt-3 mb-2 space-y-2 justify-start items-start">
+              {isSameDay(cloneDay, new Date()) &&
+                [0, 1, 2, 3].map((list) => {
+                  return (
+                    <div className="py-1 px-2 max-w-full overflow-hidden text-ellipsis truncate rounded-md shadow-sm text-sm font-medium border-[0.5px] border-gray-300 hover:bg-custom-white transition duration-150">
+                      <p>{`🔥  Burner List offfff ${list}`}</p>
+                    </div>
+                  );
+                })}
+            </div>
           </div>
         );
         day = addDays(day, 1);
       }
       rows.push(
         <div className="grid grid-cols-7 grid-flow-row" key={day.toISOString()}>
-          {" "}
-          {days}{" "}
+          {days}
         </div>
       );
       days = [];

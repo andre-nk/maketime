@@ -1,16 +1,14 @@
 import { ReactElement, useEffect, useState } from "react";
+
 import Calendar from "../components/calendar/Calendar";
 import { CalendarHeader } from "../components/calendar/CalendarHeader";
-
-import { IntroDialog1 } from "../components/intro/IntroDialog1";
-import { IntroDialog2 } from "../components/intro/IntroDialog2";
-import { IntroDialog3 } from "../components/intro/IntroDialog3";
 import { Sidebar } from "../components/navigation/Sidebar";
 import { CalendarFilter } from "../const/CalendarFilter";
 import { WelcomeDialogs } from "../const/WelcomeDialogs";
+import { useListDialogContext } from "../hooks/useListDIalogContext";
 
 function App(): ReactElement {
-  let [activeDialog, setActiveDialog] = useState(WelcomeDialogs.None);
+  const [activeDialog, setActiveDialog] = useState(WelcomeDialogs.None);
 
   const [activeFilter, setActiveFilter] = useState([
     new CalendarFilter(false, "Stack"),

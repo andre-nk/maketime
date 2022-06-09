@@ -1,17 +1,4 @@
 // tailwind.config.js
-const { colors: defaultColors } = require("tailwindcss/defaultTheme");
-
-const colors = {
-  ...defaultColors,
-  ...{
-    primary: "#F7E11B",
-    secondary: "#90E6F0",
-    major: "#030303",
-    minor: "#81817F",
-    marble: "#F8F6F0",
-  },
-};
-
 module.exports = {
   content: ["./dist/**/*.html", "./src/**/*.{js,jsx,ts,tsx}", "./*.html"],
   plugins: [require("@tailwindcss/forms")],
