@@ -11,8 +11,9 @@ import {
   isSameDay,
   parse,
 } from "date-fns";
-import "./Calendar.css";
 import { IoAdd } from "react-icons/io5";
+import { useListDialogContext } from "../../hooks/useListDIalogContext";
+import { Types } from "../../reducers/ListDialogReducers";
 
 const Calendar: FC<{
   currentDate: Date;
@@ -20,6 +21,8 @@ const Calendar: FC<{
   selectedDate: Date;
   setSelectedDate: Dispatch<SetStateAction<Date>>;
 }> = ({ currentDate, setSelectedDate }) => {
+  const { dispatch } = useListDialogContext();
+
   const days = () => {
     const dateFormat = "EEE";
     const days = [];
@@ -90,7 +93,18 @@ const Calendar: FC<{
               {isSameDay(cloneDay, new Date()) &&
                 [0, 1, 2, 3].map((list) => {
                   return (
-                    <div className="py-1 px-2 max-w-full overflow-hidden text-ellipsis truncate rounded-md shadow-sm text-sm font-medium border-[0.5px] border-gray-300 hover:bg-custom-white transition duration-150">
+                    <div
+                      key={list}
+                      onClick={() => {
+                        dispatch({
+                          type: Types.Open,
+                          payload: {
+                            jsonData: "{name: Bo Katan}",
+                          },
+                        });
+                      }}
+                      className="py-1 px-2 max-w-full overflow-hidden text-ellipsis truncate rounded-md shadow-sm text-sm font-medium border-[0.5px] border-gray-300 bg-white hover:bg-custom-white transition duration-150"
+                    >
                       <p>{`🔥  Burner List offfff ${list}`}</p>
                     </div>
                   );

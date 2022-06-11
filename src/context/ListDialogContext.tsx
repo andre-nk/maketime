@@ -1,96 +1,30 @@
-/*context.tsx*/
-
 import React, { createContext, useReducer, Dispatch } from "react";
+import {
+  ListDialogType,
+  listDialogReducer as listDialogReducer,
+  ListDialogActions,
+} from "../reducers/ListDialogReducers";
 
-type ActionMap<M extends { [index: string]: any }> = {
-  [Key in keyof M]: M[Key] extends undefined
-    ? {
-        type: Key;
-      }
-    : {
-        type: Key;
-        payload: M[Key];
-      };
+const initialState: ListDialogType = {
+  jsonData: null,
 };
 
-export enum Types {
-  Create = "CREATE_PRODUCT",
-  Delete = "DELETE_PRODUCT",
-  Add = "ADD_PRODUCT",
-}
-
-type ProductPayload = {
-  [Types.Create]: {
-    id: number;
-    name: string;
-    price: number;
-  };
-  [Types.Delete]: {
-    id: number;
-  };
-};
-
-export type ProductActions =
-  ActionMap<ProductPayload>[keyof ActionMap<ProductPayload>];
-
-export const productReducer = (
-  state: ProductType[],
-  action: ProductActions
-) => {
-  switch (action.type) {
-    case Types.Create:
-      return [
-        ...state,
-        {
-          id: action.payload.id,
-          name: action.payload.name,
-          price: action.payload.price,
-        },
-      ];
-    case Types.Delete:
-      return [...state.filter((product) => product.id !== action.payload.id)];
-    default:
-      return state;
-  }
-};
-
-type ProductType = {
-  id: number;
-  name: string;
-  price: number;
-};
-
-type InitialStateType = {
-  products: ProductType[];
-};
-
-const initialState = {
-  products: [],
-};
-
-const AppContext = createContext<{
-  state: InitialStateType;
-  dispatch: Dispatch<ProductActions>;
+const ListDialogContext = createContext<{
+  state: ListDialogType;
+  dispatch: Dispatch<ListDialogActions>;
 }>({
   state: initialState,
   dispatch: () => null,
 });
 
-const mainReducer = (
-  { products }: InitialStateType,
-  action: ProductActions
-) => ({
-  products: productReducer(products, action),
-});
-
-const AppProvider: React.FC = ({ children }) => {
-  const [state, dispatch] = useReducer(mainReducer, initialState);
+const ListDialogProvider: React.FC = ({ children }) => {
+  const [state, dispatch] = useReducer(listDialogReducer, initialState);
 
   return (
-    <AppContext.Provider value={{ state, dispatch }}>
+    <ListDialogContext.Provider value={{ state, dispatch }}>
       {children}
-    </AppContext.Provider>
+    </ListDialogContext.Provider>
   );
 };
 
-export { AppProvider, AppContext };
+export { ListDialogProvider, ListDialogContext };

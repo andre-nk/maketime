@@ -57,6 +57,7 @@ export const CalendarHeader: FC<{
           {activeFilter.map((calendarFilter: CalendarFilter, index: number) => {
             return (
               <CalendarFilterChip
+                key={index}
                 index={index}
                 value={calendarFilter.value}
                 isSelected={calendarFilter.isActive}

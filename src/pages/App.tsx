@@ -2,6 +2,10 @@ import { ReactElement, useEffect, useState } from "react";
 
 import Calendar from "../components/calendar/Calendar";
 import { CalendarHeader } from "../components/calendar/CalendarHeader";
+import { IntroDialog1 } from "../components/intro/IntroDialog1";
+import { IntroDialog2 } from "../components/intro/IntroDialog2";
+import { IntroDialog3 } from "../components/intro/IntroDialog3";
+import { ListDialogWrapper } from "../components/list_dialog/ListDialogWrapper";
 import { Sidebar } from "../components/navigation/Sidebar";
 import { CalendarFilter } from "../const/CalendarFilter";
 import { WelcomeDialogs } from "../const/WelcomeDialogs";
@@ -23,10 +27,7 @@ function App(): ReactElement {
   useEffect(() => {
     function checkUserData() {
       const item = localStorage.getItem("isOnboardingCompleted");
-      console.log(item);
-
       if (item === null || (item && item !== "true")) {
-        console.log(item);
         setNextDialog(WelcomeDialogs.Intro1);
       }
     }
@@ -47,6 +48,21 @@ function App(): ReactElement {
 
   return (
     <div className="flex justify-end w-full h-[100%]">
+      <div>
+        <ListDialogWrapper />
+        <IntroDialog1
+          isOpen={activeDialog == WelcomeDialogs.Intro1}
+          next={setNextDialog}
+        />
+        <IntroDialog2
+          isOpen={activeDialog == WelcomeDialogs.Intro2}
+          next={setNextDialog}
+        />
+        <IntroDialog3
+          isOpen={activeDialog == WelcomeDialogs.Intro3}
+          next={setNextDialog}
+        />
+      </div>
       <div className="fixed w-[17.5%] h-full top-0 left-0">
         <Sidebar />
       </div>
